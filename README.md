@@ -59,7 +59,8 @@ status_server = yes
 FreeRADIUS will only respond to status-server messages, if the status-server virtual server has been enabled. To do this, create a link from the sites-enabled directory to the status file in the sites-available directory:
 
 ```
-cd sites-enabled
+cd /etc/raddb/sites-enabled/
+
 ln -s ../sites-available/status status
 ```
 
@@ -69,6 +70,7 @@ and restart/reload your RADIUS server. You will notice that a new server listens
 
 ```
 cp userparameter_radius.conf /etc/zabbix/zabbix_agentd.d/
+
 usermod -aG radiusd zabbix
 ```
 
