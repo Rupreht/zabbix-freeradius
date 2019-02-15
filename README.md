@@ -58,19 +58,19 @@ status_server = yes
 
 FreeRADIUS will only respond to status-server messages, if the status-server virtual server has been enabled. To do this, create a link from the sites-enabled directory to the status file in the sites-available directory:
 
-<code>
+```
 cd sites-enabled
 ln -s ../sites-available/status status
-</code>
+```
 
 and restart/reload your RADIUS server. You will notice that a new server listens on port 18121/udp of localhost. If you want other clients than localhost to query this server, change the listen section of the new server. You should also change the default password in the client section of the server. Add more clients as needed.
 
 ##### 2. Add configuration userparameter_radius.conf in zabbix-agent
 
-<code>
+```
 cp userparameter_radius.conf /etc/zabbix/zabbix_agentd.d/
 usermod -aG radiusd zabbix
-</code>
+```
 
 ##### 3. Import zabbix-freeradius-template
 Change macros {$RADIUS_SECRET} for password. (default adminsecret)
